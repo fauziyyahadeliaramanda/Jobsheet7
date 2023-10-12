@@ -1,36 +1,33 @@
 import java.util.Scanner;
-
 public class DoWhileCuti10 {
-
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-
-        int jatahCuti;
-        int jumlahHari;
+    public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        
+        int jatahcuti, jumlahhari;
         String konfirmasi;
 
-        System.out.print("jatah cuti = ");
-        jatahCuti = scan.nextInt();
+        System.out.print("Jatah cuti: ");
+        jatahcuti = sc.nextInt();
 
         do {
-            System.out.print("apakah anda akan mengambil cuti? (y/t) ");
-            konfirmasi = scan.next();
+            System.out.print("Apakah anda ingin mengambil cuti (y/t)? ");
+            konfirmasi = sc.next();
 
-           
-            if (konfirmasi.equalsIgnoreCase("t")) {
-                
-                break;
-            } else if (konfirmasi.equalsIgnoreCase("y")) {
-                System.out.print("jumlah hari = ");
-                jumlahHari = scan.nextInt();
-                if (jumlahHari <= jatahCuti) {
-                    jatahCuti -= jumlahHari;
-                    System.out.println("sisa jatah cuti = " + jatahCuti);
+            if(konfirmasi.equalsIgnoreCase("y")) {
+                System.out.print("Jumlah Hari: ");
+                jumlahhari = sc.nextInt();
+
+                if(jumlahhari <= jatahcuti){
+                    jatahcuti -= jumlahhari;
+                    System.out.println("Sisa jatah cuti : " + jatahcuti);
                 } else {
-                    System.out.println("sisa jatah cuti anda tidak mencukupi. Silakan coba lagi.");
+                    System.out.println("Jumlah cuti yang anda minta melebihi jatah cuti anda");
                 }
+            }else {
+                System.out.println("");
+                break;
             }
 
-        } while (jatahCuti > 0);
+        } while (jatahcuti > 0);
     }
 }
